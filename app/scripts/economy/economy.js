@@ -71,7 +71,6 @@
 
 			EconomyHelper.getIndicatorDataByYear(vm.selectedYear, methodName).then(function (data) {
 				vm.gridData = data;
-				console.log(data);
       	vm.economyMap.values = vm.mapData = _generateMapData(data);
 			});
 		}
