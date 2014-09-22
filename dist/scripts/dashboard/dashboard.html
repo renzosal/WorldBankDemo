@@ -1,0 +1,143 @@
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li class='active'><i class="fa fa-home"></i><a href="#/"> Dashboard</a></li>
+            </ol>
+
+            <h1>World Bank Data Overview</h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group">
+                    <span>
+                        <input autocomplete
+                           source="vm.countries"
+                           output="vm.selectedCountry"
+                           ng-model="vm.countrySearch"
+                           type="text" 
+                           class="form-control" 
+                           id="country-search" 
+                           placeholder="Search By Country" >
+                    </span>
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="vm.getCountryOverview()" ng-disabled="vm.selectedCountry == null" type="button">Go</button>
+                    </span>
+                    </div><!-- /input-group -->
+
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4></h4>
+                            <div class="options">
+                                <div class="form-group">
+                                    <select class="form-control"
+                                            ng-model="vm.selectedYear"
+                                            ng-init="vm.selectedYear=vm.years[1]"
+                                            ng-change="vm.getCountryOverview()"
+                                            ng-options="year as year for year in vm.years"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div style="height: 420px" jqvmap options="vm.mapSettings"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 dashboard-tiles">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-sky">
+                                <div class="panel-heading">
+                                    <h4>Economy & Growth</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div ng-if="vm.economyTile.value != 0">
+                                        <span>{{vm.economyTile.value | currency}}</span>
+                                        <h5>GDP (current US$)</h5>
+                                    </div>
+                                    <div ng-if="vm.economyTile.value == 0">
+                                        No Data Available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4>Education</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div ng-if="vm.educationTile.value != 0">
+                                        <span>{{vm.educationTile.value}}%</span>
+                                        <h5>School enrollment, primary (% gross)</h5>
+                                    </div>
+                                    <div ng-if="vm.educationTile.value == 0">
+                                        No Data Available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h4>Health</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div ng-if="vm.healthTile.value != 0">
+                                        <span>{{vm.healthTile.value}}</span>
+                                        <h5>Life expectancy at birth, total (years)</h5>
+                                    </div>
+                                    <div ng-if="vm.healthTile.value == 0">
+                                        No Data Available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <h4>Environment</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div ng-if="vm.environmentTile.value != 0">
+                                        <span>{{vm.environmentTile.value}}</span>
+                                        <h5>Energy Use (kt of oil equivalent)</h5>
+                                    </div>
+                                    <div ng-if="vm.environmentTile.value == 0">
+                                        No Data Available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-orange">
+                                <div class="panel-heading">
+                                    <h4>Urban Development</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div ng-if="vm.urbanDevTile.value != 0">
+                                        <span>{{vm.urbanDevTile.value}}%</span>
+                                        <h5>Urban population (% of total)</h5>
+                                    </div>
+                                    <div ng-if="vm.urbanDevTile.value == 0">
+                                        No Data Available
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div> <!-- container -->

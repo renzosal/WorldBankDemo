@@ -270,7 +270,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'scripts/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/*',
             'assets/**',
@@ -309,12 +309,12 @@ module.exports = function (grunt) {
     },
     ngtemplates:  {
       app: {
-        src:      'app/views/templates/**.html',
-        dest:     'app/scripts/templates/templates.js',
+        src:      'app/scripts/*/templates/**.html',
+        dest:     'app/scripts/common/templates.js',
         options:  {
-          url:    function(url) { return url.replace('app/views/', ''); },
+          url:    function(url) { return url.replace('app/scripts/shell/', ''); },
           bootstrap: function(module, script) {
-            return "angular.module('theme.templates', []).run(['$templateCache', function ($templateCache) {\n"+script+"}])";
+            return "angular.module('worldBank').run(['$templateCache', function ($templateCache) {\n"+script+"}])";
           }
         },
       }
@@ -445,15 +445,15 @@ module.exports = function (grunt) {
     'less:dist',
     'autoprefixer',
     'concat',
-    // 'ngmin',
+     'ngmin',
     'copy:dist',
-    // 'cdnify',
+    'cdnify',
     'cssmin',
     'uglify',
     'rev',
     'usemin',
     'processhtml:dist',
-    // 'htmlmin'
+    //'htmlmin'
   ]);
 
   grunt.registerTask('default', [

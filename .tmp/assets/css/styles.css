@@ -8024,14 +8024,8 @@ body.static-header {
 }
 
 .navbar-brand {
-  font: 0/0 a!important;
-  color: transparent!important;
-  text-shadow: none!important;
-  background-color: transparent!important;
-  border: 0!important;
-  background: url(../img/logo.png) no-repeat center center;
   height: 40px;
-  width: 106px;
+  width: 126px;
 }
 
 @media (max-width:480px) {
@@ -8045,7 +8039,7 @@ body.static-header {
   .navbar-header {
     margin: 0 auto;
     float: none!important;
-    width: 106px;
+    width: 126px;
   }
 }
 
