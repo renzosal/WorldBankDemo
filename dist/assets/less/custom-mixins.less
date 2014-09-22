@@ -1,0 +1,95 @@
+// Improving on bootstrap's mixins
+
+.responsive-visibility() {
+  display: block !important;
+  tr& { display: table-row !important; }
+  th&,
+  td& { display: table-cell !important; }
+  .btn-group&, .btn-group-vertical&, .btn& {display: inline-block !important;}
+  span&, i& {display: inline !important;}
+}
+
+.responsive-invisibility() {
+  display: none !important;
+  tr& { display: none !important; }
+  th&,
+  td& { display: none !important; }
+  .btn-group&, .btn-group-vertical&, .btn&,span&, i& {display: none !important;}
+}
+
+// Theme Specific
+
+.btn-alt-states(@border) {
+
+  color: #333;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: @border;
+  border-width: 1px;
+  border-style:solid;
+  .box-shadow(~"none");
+
+  &:hover,
+  &:focus {
+    box-shadow: none !important;
+    color:#000;
+    border-color: darken(@border,10%);
+  }
+  &:active,
+  &.active {
+    border-color: @border;
+    background-color: @border;
+    color: #fff;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+      border-color: @border;
+    }
+    &:active,
+    &.active {
+      border-color: @border;
+      background-color: @border;
+      color: #fff;
+    }
+  }
+
+  // .caret {border-top-color: #1a1a1a !important;}
+  &.dropdown-toggle {border-width: 1px}
+  &.dropdown-toggle.alt-border {border-width: 1px 1px 1px 1px;}
+}
+
+// RGBA colours in IE via a LESS mixin
+.rgba(@colour, @alpha) {
+  @alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
+  @ieAlphaColour: argb(@alphaColour);
+  
+  background-color: @colour; // Fallback for older browsers
+  background-color: @alphaColour; 
+  
+  // IE hacks
+  zoom: 1; // hasLayout
+  background-color: transparent\9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 8+
+      filter:  ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})";  // IE 6 & 7 
+}
+
+
+// Alerts
+// -------------------------
+.alert-variant(@background; @border; @text-color) {
+  background-color: @background;
+  border-color: @border;
+  &, h1, h2, h3, h4, h5, h6 {color: @text-color;}
+
+  hr {
+    border-top-color: darken(@border, 5%);
+  }
+  .alert-link {
+    color: darken(@text-color, 10%);
+  }
+}
