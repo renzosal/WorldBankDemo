@@ -1,0 +1,497 @@
+//
+// Panels
+// --------------------------------------------------
+
+@line-height-tabs-default: 39px; //33/14
+@line-height-tabs-color: 38px; //35/14
+@line-height-panel: 40px; //40/14
+
+// Base class
+.panel {
+  margin: 0px 0 20px;
+  border-radius:  @panel-border-radius;
+}
+
+.panel-body {
+  border: 0px solid @panel-inner-border;
+  border-radius:  @panel-border-radius;
+  .clearfix(); 
+}
+
+// Heading
+.panel-heading {
+  font-size: @font-size-base;
+
+  // font-weight: 500;
+  // background-color: @panel-default-heading-bg;
+
+  border-bottom: 1px solid @panel-inner-border;
+  .border-top-radius(@panel-border-radius);
+
+  .clearfix();  
+  height: 40px;
+  line-height: 2em;
+
+  .nav.nav-tabs li { // ALL the heading tabs
+    a {color: @gray-dark;outline: none; cursor:pointer; text-rendering: auto;}
+    a:hover {border: 1px solid transparent; color: #444; background: none;}
+    &.active a {
+      color: @gray-darker;
+      background-color: @body-bg;
+      border-left: 1px solid @border-darker;
+      border-right: 1px solid @border-darker;
+      border-top: 1px solid @border-darker;
+      cursor:default;
+    }
+  }
+
+  
+  h4 {
+    font-size: @font-size-base;
+      letter-spacing: 0.1em;
+      color: @gray;
+  text-transform: uppercase;
+    float: left;
+    margin: 0;
+    line-height: 40px;
+    text-rendering: auto;
+    i {position: relative;} //Align visually
+    // max-width: 80%;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+  }
+  .options {
+    .pull-right;
+    .clearfix();
+
+    .nav-tabs {
+      float: left;
+      position: relative;
+      top: 0px;
+      li a { line-height: 38px; } // + 2px border = 35}
+    }
+
+    > a { // Links outside tabs
+      .opacity(0.50); 
+      color: @gray; 
+      float: right;
+      line-height: 40px;
+      padding-left: 10px;
+      &:hover {
+        .opacity(1); 
+        text-decoration: none
+      }
+    }
+
+    .btn {line-height: 1em !important; padding-top: 2px;padding-bottom: 2px; .opacity(1);}
+  }
+}
+
+// Footer (stays gray in every modifier class)
+.panel-footer {
+  .clearfix();
+  padding: 15px;
+  .border-bottom-radius(@panel-border-radius);
+}
+
+
+// For Default Panels
+.panel-body {padding:20px}
+.panel-heading + .panel-body {
+  border: none; padding: 15px 0;
+  .border-top-radius(0);
+}
+
+.panel-body + .panel-footer {
+  padding: 10px 0 0;
+  border-top: 1px solid @panel-inner-border;
+  color: @panel-inner-border;
+}
+
+
+// Tabs for Default Styles
+.options .nav-tabs {
+  // line-height: 1;
+  li {
+    a {padding: 0px 10px; font-size: @font-size-base; line-height: 38px;}
+    a:hover {background:none;}
+  }
+  border-bottom: 0;
+  >li>a {margin-right:0;}
+}
+
+
+// Icon Highlights
+.icon-highlight {
+  top: -1px;
+  padding: 5px 0px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: @border-radius-small;
+  margin: 5px 3px 5px -3px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+// Icon Scale
+.icon-scale {font-size:14px;}
+.icon-scale-sm {font-size:13px;}
+.icon-gray {color: rgba(0, 0, 0, 0.5);}
+
+// Colors
+.icon-highlight-info {color: #fff !important; background: @brand-info;}
+.icon-highlight-primary {color: #fff !important; background: @brand-primary;}
+.icon-highlight-danger {color: #fff !important; background: @brand-danger;}
+.icon-highlight-success {color: #fff !important; background: @brand-success;}
+.icon-highlight-inverse {color: #fff !important; background: @brand-inverse;}
+.icon-highlight-orange {color: #fff !important; background: @brand-orange;}
+.icon-highlight-midnightblue {color: #fff !important; background: @brand-midnightblue;}
+.icon-highlight-indigo {color: #fff !important; background: @brand-indigo;}
+.icon-highlight-green {color: #fff !important; background: @brand-green;}
+.icon-highlight-sky {color: #fff !important; background: @brand-sky;}
+.icon-highlight-warning {color: #fff !important; background: @brand-warning;}
+.icon-highlight-purple {color: #fff !important; background: @brand-purple;}
+
+
+// Contextual variations
+
+.panel-primary {
+  .panel-variated(@panel-primary-text, @panel-primary-heading-bg, @panel-primary-border);
+}
+
+.panel-success {
+  .panel-variated(@panel-success-text, @panel-success-heading-bg, @panel-success-border);
+}
+
+.panel-warning {
+  .panel-variated(@panel-warning-text, @panel-warning-heading-bg, @panel-warning-border);
+}
+
+.panel-danger {
+  .panel-variated(@panel-danger-text, @panel-danger-heading-bg, @panel-danger-border);
+}
+
+.panel-info {
+  .panel-variated(@panel-info-text, @panel-info-heading-bg, @panel-info-border);
+}
+
+.panel-inverse {
+  .panel-variated(@panel-inverse-text, @panel-inverse-heading-bg, @panel-inverse-border);
+}
+
+// custom panels
+
+.panel-brown {
+  .panel-variated(#fff, @brand-brown, @brand-brown);
+}
+.panel-indigo {
+  .panel-variated(#fff, @brand-indigo, @brand-indigo);
+}
+.panel-orange {
+  .panel-variated(#fff, @brand-orange, @brand-orange);
+}
+.panel-sky {
+  .panel-variated(#fff, @brand-sky, @brand-sky);
+}
+.panel-midnightblue {
+  .panel-variated(#fff, @brand-midnightblue, @brand-midnightblue);
+}
+.panel-magenta {
+  .panel-variated(#fff, @brand-magenta, @brand-magenta);
+}
+.panel-green {
+  .panel-variated(#fff, @brand-green, @brand-green);
+}
+.panel-purple {
+  .panel-variated(#fff, @brand-purple, @brand-purple);
+}
+.panel-grape {
+  .panel-variated(#fff, @brand-grape, @brand-grape);
+}
+
+
+.panel.gray {
+  .panel-variated(@text-color, @border-lighter, @border-lighter);
+  .panel-heading {
+    .options .nav-tabs {top: 1px !important;}
+    border-bottom: 0px solid @border-darker;
+    padding-right: 10px;
+    .nav.nav-tabs li a {border:none; line-height: 39px !important;}
+    .nav.nav-tabs li a:hover {border:none; line-height: 39px !important;}
+    .nav.nav-tabs li.active a {background:#fff; border: none; line-height: 39px !important;}
+    .nav.nav-tabs li.active a:hover { background:#fff; border: none; line-height: 39px !important;}
+    h4 {padding-left: 10px; color: @gray !important;}
+    .nav-tabs li a {}
+    h4>.nav.nav-tabs {right:10px;}
+    h4>.nav.nav-tabs li a {line-height: 39px; padding: 0 10px; margin-top: 1px; border: none !important;}
+  }
+  .panel-body {background-color: #fff; border-top: 0px !important; border-left: 0px solid @border-darker; border-right: 0px solid @border-darker; border-bottom: 0px solid @border-darker; padding: 20px !important;}
+}
+
+.panel-gray {
+  .panel-variated(@gray-dark, @border-lighter, @border-lighter);
+  .panel-heading {
+    border-top: 0px solid @border-darker !important;
+    border-left: 0px solid @border-darker !important;
+    border-right: 0px solid @border-darker !important;
+
+    h4 {color: @gray !important}
+    .options a {color: @gray-dark !important}
+
+    border-bottom:none;
+    &.rounded-bottom {border-bottom: 0px solid @border-darker !important;}
+  }
+  .panel-body {
+    border-bottom: 0px solid @border-darker !important;
+    border-left: 0px solid @border-darker !important;
+    border-right: 0px solid @border-darker !important;
+  }
+}
+
+
+
+// Colored Panels
+
+
+[class*="panel-"].panel {
+  .panel-heading {
+    padding: 0 15px;
+    border-bottom:none;
+    
+    &.rounded-bottom {.border-bottom-radius(@panel-border-radius);}
+
+    .nav.nav-tabs > li { // ALL Tabs in colored panels
+      a {
+        line-height: 39px !important;
+        color: #fff; //fallback
+        color:rgba(255,255,255,0.75);
+      }
+      a:hover {color: #fff;}
+      &.active a {color: @gray-dark; background: #fff;}
+    }
+
+    // Options
+    .options {
+      // line-height: 1;
+      a {color: #fff;}
+
+      .nav-tabs {
+        top: 1px !important;
+        li, li a {border: none; font-size: @font-size-base !important;}
+        li a {line-height: 39px !important}
+        
+        li.active a:hover {color: @gray-dark;}
+        li a i {font-size: @font-size-base;}
+      }
+    }
+  }
+
+  .panel-body {
+    padding: 15px;
+    border-left: 0px solid @panel-inner-border;
+    border-right: 0px solid @panel-inner-border;
+    border-bottom: 0px solid @panel-inner-border;
+    background-color: #fff;
+    &.no-padding {padding: 0;}
+  }
+  .panel-footer {
+    background-color: @panel-footer-bg;
+    border-width: 0;
+    border-style: solid;
+    border-color: @panel-inner-border;
+    padding: 15px;
+    color: darken(@gray-dark, 25%);
+  }
+
+  .panel-heading+.panel-body {border-top:none;}
+
+
+  .panel-body .panel-footer {
+    margin: 15px -15px -15px;
+    border-top: 0px solid @panel-inner-border;
+  }
+}
+
+
+
+
+
+
+//Heading Tabs
+
+.panel-heading>h4>ul.nav.nav-tabs {
+  position: relative;
+  border: none;
+  > li {
+      padding-left: 0;
+      >a {
+        padding: 0 10px; 
+        line-height: 38px;
+
+      }
+    }
+}
+
+
+
+[class*="panel-"].panel {
+  .panel-heading>h4 {
+    color: #fff;
+    >ul.nav.nav-tabs {
+      bottom: -1px;
+      right: 14px;
+      border:none;
+      > li > a {border:none;padding: 0 10px; line-height: 40px; margin-top: 0px;}
+    }
+  }
+}
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.panel-body {
+  > .list-group {
+    margin: -20px;
+
+    .list-group-item {
+      border-width: 1px 0;
+
+      // Remove border radius for top one
+      &:first-child {
+        .border-top-radius(0);
+      }
+      // But keep it for the last one
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table {
+    margin-bottom: 0;
+  }
+  > .panel-body + .table {
+    border-top: 1px solid @table-border-color;
+  }
+}
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+    border-radius: @panel-border-radius;
+    overflow: hidden; // crop contents when collapsed
+    + .panel {
+      margin-top: 5px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+    h4 a {color: #fff}
+    + .panel-collapse .panel-body {
+      border-top: 0px solid @panel-inner-border;
+    }
+  }
+  .panel-footer {
+    border-top: 0;
+    + .panel-collapse .panel-body {
+      border-bottom: 0px solid @panel-inner-border;
+    }
+  }
+
+  // New subcomponent for wrapping collapsable content for proper animations
+  .panel-collapse {
+    .panel-body {
+      border-top:none;
+      .border-top-radius(0);
+    }
+  }
+}
+
+
+//Custom Panel Mixin
+//-------------------
+
+.panel-variated(@heading-text-color, @heading-bg-color, @heading-border) {
+  border-color: @heading-border;
+  .panel-heading {
+    color: @heading-text-color;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+  }
+  .panel-body {
+    border-top: 2px solid @heading-border; 
+    &.no-border {
+      border-top: none;
+    }
+  }
+  
+}
+
+
+//Dropdowns in Panels
+//--------------------
+.panel .panel-heading .nav.nav-tabs > li {margin-bottom: -2px;}
+.panel .panel-heading .nav.nav-tabs > li.dropdown {
+  > a:hover, a:focus {color: @gray-dark; background-color: transparent;}
+  &.open > a, &.open > a:hover, &.open > a:focus {color: @gray-dark; background-color: transparent;border: 1px solid transparent}
+}
+
+[class*="panel-"].panel .panel-heading .nav.nav-tabs > li {margin-bottom: -1px;}
+[class*="panel-"].panel .panel-heading .nav.nav-tabs > li.dropdown {
+  > a:hover, a:focus {background-color: transparent; color: #fff; color: rgba(255,255,255,0.75);}
+  &.open > a, &.open > a:hover, &.open > a:focus {background-color: transparent; color: #fff; border: none;}
+}
+
+.panel-heading h4 .nav.nav-tabs .dropdown-menu {margin-top: -2px;}
+.panel-heading .nav.nav-tabs > li.dropdown.open ul.dropdown-menu li a {
+  color: @gray-dark;
+  &:hover {background-color: @border-darker; border:none}
+}
+
+
+// Anngular Controls
+
+panel-controls {
+  float: right !important;
+  height: 36px;
+  margin-left: 10px;
+}
+panel-controls > a {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  color: #000;
+  font-size: 14px;
+  float: right;
+  line-height: 35px;
+  padding-left: 10px;
+}
+
+tab-heading .badge {
+  top: 0 !important;
+  left: 0 !important;
+  position: relative !important;
+  letter-spacing: 0;
+}

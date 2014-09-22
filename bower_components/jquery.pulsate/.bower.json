@@ -1,0 +1,19 @@
+{
+  "name": "jquery.pulsate",
+  "main": [
+    "./jquery.pulsate.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.2"
+  },
+  "homepage": "https://github.com/Kilian/jQuery.pulsate",
+  "_release": "70a4eef39f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "70a4eef39f365d125c407cd92ec83ac36ca980af"
+  },
+  "_source": "git://github.com/Kilian/jQuery.pulsate.git",
+  "_target": "*",
+  "_originalSource": "jquery.pulsate"
+}

@@ -1,0 +1,177 @@
+//
+// Tabs
+// --------------------------------------------------
+
+.nav > li > a:hover, .nav > li > a:focus, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background: none;
+}
+
+.tab-container {
+	.nav-tabs {margin: 0}
+
+	.nav-tabs > li > a {
+		color: @gray; 
+		border-radius: @border-radius-base @border-radius-base 0 0; 
+		border: none !important; 
+
+		&:hover {color: @gray-darker; 
+			cursor: pointer; 
+			border: none !important
+		}
+	}
+
+
+
+	
+	margin-bottom: 20px;
+
+	.tab-content {
+		background: #fff;
+		z-index: 1;
+		position: relative;
+		border: 0;
+		border-radius: @border-radius-base;
+		border-top: 0;
+		padding: 15px;
+	}
+	
+	p {margin: 0}
+	p + p {margin-top: 10px;}
+
+	> .nav-tabs > li.active > a {color: #fff !important; border: none !important}
+
+	&.tab-left, &.tab-right {
+		> .nav-tabs > li {float: none; min-width: 75px;}
+		> .nav-tabs > li > a {border: 0;}
+		.tab-content {overflow: auto; border: 0;}
+
+
+	}
+
+	&.tab-left > .nav-tabs {
+		float: left;
+		> li > a {border-right: 0}
+		> li.active, > li.active > a {border-radius: @border-radius-base 0 0 @border-radius-base !important;}
+		a.dropdown-toggle {
+			&:hover {text-decoration: none}
+		}
+	}
+
+	&.tab-right > .nav-tabs {
+		float: right;
+		> li > a {border-left: 0;}
+		> li.active, > li.active > a {border-radius: 0 @border-radius-base @border-radius-base 0 !important;}
+	}
+
+	&.tab-bottom {
+		> .tab-content {border-top: 0;}
+		> .nav-tabs {
+			border-bottom: none;
+			margin-top: 0px;
+			> li.active, > li.active > a {border-radius: 0 0 @border-radius-base @border-radius-base !important;}
+		}
+	}
+
+	.nav-tabs {
+		border: none !important;
+	}
+
+	.tab-controls {
+		position: relative;
+		min-width: 75px;
+	}
+}
+
+.tab-primary      {.tab-states(@brand-primary);}
+.tab-warning      {.tab-states(@brand-warning);}
+.tab-danger       {.tab-states(@brand-danger);}
+.tab-success      {.tab-states(@brand-success);}
+.tab-info         {.tab-states(@brand-info);}
+.tab-inverse      {.tab-states(@brand-inverse);}
+
+// custom colors
+.tab-brown        {.tab-states(@brand-brown);}  
+.tab-indigo       {.tab-states(@brand-indigo);}
+.tab-orange       {.tab-states(@brand-orange);}
+.tab-sky          {.tab-states(@brand-sky);}
+.tab-midnightblue {.tab-states(@brand-midnightblue);}
+.tab-magenta      {.tab-states(@brand-magenta);}  
+.tab-green        {.tab-states(@brand-green);} 
+.tab-purple       {.tab-states(@brand-purple);} 
+
+
+.tab-states(@color) {
+  &.tab-container {
+  	.tab-content {border: 1px solid @color !important;}
+  	>.nav-tabs > li.active > a {background: @color; box-shadow: 0 3px 0 0 @color;}
+  	&.tab-left > .nav-tabs > li.active > a {background: @color; box-shadow: 3px 0 0 0 @color;}
+  	&.tab-right > .nav-tabs > li.active > a {background: @color; box-shadow: -3px 0 0 0 @color;}
+  	&.tab-bottom > .nav-tabs > li.active > a {background: @color; box-shadow: 0 -3px 0 0 @color;}
+  }
+}
+
+
+//
+// Accordions
+// --------------------------------------------------
+.accordion-group {
+	.accordion-item {
+		.accordion-title {
+			text-decoration: none;
+			h4 {
+				color: @gray-darker;
+				background-color: @border-lighter;
+				border: 1px solid @border-lighter;
+				padding: 5px 10px;
+				border-radius: @border-radius-base;
+				margin: 5px 0;
+				&:after {
+					.opacity(0.5);
+					content:"\f107";
+					font-family: FontAwesome;
+					font-style: normal;
+					font-weight: normal;
+					float: right;
+					text-decoration: none;
+				}
+			}
+			&.collapsed h4:after {content:"\f104";.opacity(0.5)}
+		}
+		.accordion-body {
+			padding: 20px;
+		}
+	}
+}
+
+
+accordion {
+	h4.panel-title {
+		float: none;
+		line-height: 0;
+		a {
+			line-height: 40px;
+			display: block;
+			cursor: pointer;
+			
+			margin: 0 -15px;
+			padding: 0 15px;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		i.fa {
+			.opacity(0.7);
+			line-height: 40px;
+		}
+	}
+}
+
+
+// a.accordion-toggle
+// 	display: block;
+// 	cursor:pointer;
+// 	&:hover {
+// 		text-decoration: none;
+		
+// 	}
+// }

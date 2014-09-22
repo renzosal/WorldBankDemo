@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Wolrd Bank</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Forza">
+  <meta name="author" content="Ndevr Studios & The Red Team">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- prochtml:remove:dist -->
+  <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> 
+  <!-- /prochtml -->
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+        
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries. Placeholdr.js enables the placeholder attribute -->
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="assets/css/ie8.css">
+    <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/charts-flot/excanvas.min.js"></script>
+    <script type='text/javascript' src='assets/plugins/misc/placeholdr.js'></script>
+  <![endif]-->
+
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+
+    <!-- build:css assets/css/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/jqvmap/jqvmap/jqvmap.css" />
+    <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.css" />
+    <!-- endbower -->
+
+    <!-- build:css({.tmp,app}) assets/css/main.css -->
+      <link rel="stylesheet" href="assets/css/main.css">
+      <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- endbuild -->
+
+    <!-- prochtml:remove:dist -->
+    <script type="text/javascript">less = {}; less.env = 'development';</script>
+    <script type="text/javascript" src="assets/plugins/misc/less.js"></script>
+    <!-- /prochtml -->
+
+<style type="text/css">
+[ng-cloak] {
+  display: none;
+}
+.topNegative1000 {
+  top: -1000px !important;
+}
+.topZero {
+  top: 0 !important;
+}
+  
+.mainview-animation {
+  position: relative;
+}
+.mainview-animation.ng-enter {
+  -webkit-transition: .3s linear all; /* Safari/Chrome */
+  -moz-transition: .3s linear all; /* Firefox */
+  -o-transition: .3s linear all; /* Opera */
+  transition: .3s linear all; /* IE10+ and Future Browsers */
+}
+
+/**
+ * Pre animation -> enter
+ */
+.mainview-animation.ng-enter{
+  /* The animation preparation code */
+  opacity: 0;
+}
+
+/**
+ * Post animation -> enter
+ */
+.mainview-animation.ng-enter.ng-enter-active { 
+  /* The animation code itself */
+  opacity: 1;
+}
+
+.angular-google-map-container { height: 300px; }
+.navbar.navbar-default.ng-hide {
+  display: none;
+}
+#page-rightbar .jspHorizontalBar {
+  /*display: none !important;*/
+}
+.fc-grid .fc-day-number {
+  padding: 5px 6px;
+}
+</style>
+</head>
+
+<body class=""
+  ng-app="worldBank"
+  ng-controller="ShellController"
+  ng-class="{
+              'static-header': !style_fixedHeader,
+              'collapse-leftbar': style_leftbarCollapsed && !style_leftbarShown,
+              'show-leftbar': style_leftbarShown
+            }"
+  ng-cloak
+>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <a id="leftmenu-trigger" tooltip-placement="right" tooltip="Toggle Sidebar" ng-click="toggleLeftBar()"></a>
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="#/">Forza</a>
+        </div>
+    </ul>
+    </header>
+    <div id="page-container" class="clearfix">
+
+        <!-- BEGIN SIDEBAR -->
+        <nav id="page-leftbar" role="navigation">
+
+            <div>
+              <ul ng-controller="NavigationController as vm" id="sidebar" sticky-scroll="40">
+                  <li ng-repeat="item in vm.menu"
+                      ng-class="{     active: item.selected }"
+                      ng-include="'scripts/shell/nav-item.html'"
+                    ></li>
+              </ul>
+            </div>
+            <!-- END SIDEBAR MENU -->
+        </nav>
+      <!-- END RIGHTBAR -->
+    <div id="page-content" class="clearfix" fit-height>
+        <div id="wrap" ng-view="" class="mainview-animation">
+        </div> <!--wrap -->
+    </div> <!-- page-content -->
+
+    <footer role="contentinfo">
+        <div class="clearfix">
+            <button class="pull-right btn btn-default btn-xs hidden-print" back-to-top style="padding: 1px 10px;"><i class="fa fa-angle-up"></i></button>
+        </div>
+    </footer>
+
+</div> <!-- page-container -->
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=true'></script> 
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/jqvmap/jqvmap/jquery.vmap.js"></script>
+    <script src="../bower_components/jqvmap/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="../bower_components/jquery.pulsate/jquery.pulsate.js"></script>
+    <script src="../bower_components/enquire/dist/enquire.js"></script>
+    <script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <!-- endbower -->
+
+    <script type='text/javascript' src="bower_components/Chart.js/Chart.min.js"></script>
+    <!-- endbuild -->
+
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+      <script src="scripts/config.js"></script>
+      <script src="scripts/config.route.js"></script>
+
+      <script src="scripts/common/worldBankService.js"></script>
+      <script src="scripts/common/httpInterceptor.js"></script>
+      <script src="scripts/common/directives.js"></script>
+      <script src="scripts/common/services.js"></script>
+      <script src="scripts/common/worldBankService.js"></script>
+
+      <script src="scripts/shell/shell.js"></script>
+      <script src="scripts/shell/navigation.js"></script>
+
+      <script src="scripts/dashboard/dashboard.js"></script>
+      <script src="scripts/dashboard/resolver.js"></script>
+      <script src="scripts/dashboard/helper.js"></script>
+
+      <script src="scripts/health/health.js"></script>
+      <script src="scripts/health/resolver.js"></script>
+      <script src="scripts/health/helper.js"></script>
+      <script src="scripts/health/healthService.js"></script>
+
+      <script src="scripts/economy/economy.js"></script>
+      <script src="scripts/economy/resolver.js"></script>
+      <script src="scripts/economy/helper.js"></script>
+      <script src="scripts/economy/economyService.js"></script>
+
+      <script src="scripts/education/education.js"></script>
+      <script src="scripts/education/resolver.js"></script>
+      <script src="scripts/education/helper.js"></script>
+      <script src="scripts/education/educationService.js"></script>
+
+      <script src="scripts/environment/environment.js"></script>
+      <script src="scripts/environment/resolver.js"></script>
+      <script src="scripts/environment/helper.js"></script>
+      <script src="scripts/environment/environmentService.js"></script>
+
+      <script src="scripts/urban/urban.js"></script>
+      <script src="scripts/urban/resolver.js"></script>
+      <script src="scripts/urban/helper.js"></script>
+      <script src="scripts/urban/urbanService.js"></script>
+      
+      <!-- endbuild -->
+
+</body>
+</html>

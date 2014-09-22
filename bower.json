@@ -1,0 +1,46 @@
+{
+  "name": "WorldBank",
+  "version": "1.0.0",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "jquery": "~1.11.0",
+    "angular": "~1.2.0",
+    "angular-resource": "~1.2.0",
+    "angular-sanitize": "~1.2.0",
+    "angular-route": "~1.2.0",
+    "angular-animate": "~1.2.0",
+    "font-awesome": "~4.0.3",
+    "angular-bootstrap": "0.11.0",
+    "jqvmap": "*",
+    "Chart.js": "1.0.1-beta.2",
+    "jquery.pulsate": "*",
+    "enquire": "2.1.1",
+    "angular-loading-bar": "0.6.0"
+  },
+  "resolutions": {
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {
+    "twbs-bootstrap-sass": "~3.1.1"
+  },
+  "overrides": {
+    "angular-loading-bar": {
+      "main": [
+        "build/loading-bar.js",
+        "build/loading-bar.css"
+      ]
+      },
+    "jqvmap": {
+      "main": [
+        "jqvmap/jquery.vmap.js",
+        "jqvmap/maps/jquery.vmap.world.js",
+        "jqvmap/maps/jquery.vmap.europe.js",
+        "jqvmap/maps/jquery.vmap.usa.js",
+        "jqvmap/jqvmap.css"
+      ]
+    },
+    "bootstrap": {
+      "main": "dist/js/bootstrap.js"
+    }
+  }
+}
