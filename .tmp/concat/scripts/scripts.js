@@ -751,15 +751,14 @@ angular.module('worldBank', [
   ];
   function dashboardHelper($q, EducationService, EconomyService, HealthService, EnvironmentService, UrbanService) {
     var $q = $q;
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        years: [
-          2013,
-          2012,
-          2011,
-          2010,
-          2009,
-          2008
-        ],
+        years: rangeYears,
         getCountryOverview: _getCountryOverview,
         getSelectedCountry: _getSelectedCountry
       };
@@ -893,14 +892,14 @@ angular.module('worldBank', [
   angular.module('worldBank').factory('HealthHelper', healthHelper);
   healthHelper.$inject = ['HealthService'];
   function healthHelper(HealthService) {
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        yearsList: [
-          2012,
-          2011,
-          2010,
-          2009,
-          2008
-        ],
+        yearsList: rangeYears,
         indicators: [
           {
             name: 'Life expectancy at birth, total (years)',
@@ -1086,7 +1085,6 @@ angular.module('worldBank', [
       }).labelFormat;
       EconomyHelper.getIndicatorDataByYear(vm.selectedYear, methodName).then(function (data) {
         vm.gridData = data;
-        console.log(data);
         vm.economyMap.values = vm.mapData = _generateMapData(data);
       });
     }
@@ -1131,14 +1129,14 @@ angular.module('worldBank', [
   angular.module('worldBank').factory('EconomyHelper', economyHelper);
   economyHelper.$inject = ['EconomyService'];
   function economyHelper(EconomyService) {
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        yearsList: [
-          2013,
-          2012,
-          2011,
-          2010,
-          2009
-        ],
+        yearsList: rangeYears,
         indicators: [
           {
             name: 'GNI per capita, Atlas method (current US$)',
@@ -1360,14 +1358,14 @@ angular.module('worldBank', [
   angular.module('worldBank').factory('EducationHelper', educationHelper);
   educationHelper.$inject = ['EducationService'];
   function educationHelper(EducationService) {
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        yearsList: [
-          2012,
-          2011,
-          2010,
-          2009,
-          2008
-        ],
+        yearsList: rangeYears,
         indicators: [
           {
             name: 'School enrollment, primary (% gross)',
@@ -1639,14 +1637,14 @@ angular.module('worldBank', [
   angular.module('worldBank').factory('EnvironmentHelper', environmentHelper);
   environmentHelper.$inject = ['EnvironmentService'];
   function environmentHelper(EnvironmentService) {
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        yearsList: [
-          2011,
-          2010,
-          2009,
-          2008,
-          2007
-        ],
+        yearsList: rangeYears,
         indicators: [
           {
             name: 'Energy Use (kt of oil equivalent)',
@@ -1913,14 +1911,14 @@ angular.module('worldBank', [
   angular.module('worldBank').factory('UrbanHelper', urbanHelper);
   urbanHelper.$inject = ['UrbanService'];
   function urbanHelper(UrbanService) {
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for (var i = actualYear; i > finalYear; i--) {
+      rangeYears.push(i);
+    }
     var helper = {
-        yearsList: [
-          2013,
-          2012,
-          2011,
-          2010,
-          2009
-        ],
+        yearsList: rangeYears,
         indicators: [
           {
             name: 'Urban population (% of total)',

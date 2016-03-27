@@ -9,8 +9,15 @@
 
 	function healthHelper(HealthService) {
 
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for(var i = actualYear; i>finalYear; i--) {
+      rangeYears.push(i);
+    }
+
 		var helper = {
-			yearsList : [2012,2011,2010,2009,2008],
+			yearsList : rangeYears, 
 			indicators: [
 	      {	name:'Life expectancy at birth, total (years)', 
 	      	method: 'getAllLifeExpectancyByYear',

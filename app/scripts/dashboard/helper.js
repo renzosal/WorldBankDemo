@@ -11,8 +11,15 @@
 
 		var $q = $q;
 
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for(var i = actualYear; i>finalYear; i--) {
+      rangeYears.push(i);
+    }
+
 		var helper = {
-			years : [2013,2012,2011,2010,2009,2008],
+			years : rangeYears, 
 			getCountryOverview: _getCountryOverview,
 			getSelectedCountry: _getSelectedCountry
 		};
