@@ -9,8 +9,15 @@
 
 	function environmentHelper(EnvironmentService) {
 
+    var actualYear = new Date().getFullYear();
+    var finalYear = 2006;
+    var rangeYears = [];
+    for(var i = actualYear; i>finalYear; i--) {
+      rangeYears.push(i);
+    }
+
 		var helper = {
-			yearsList : [2011,2010,2009,2008, 2007],
+			yearsList : rangeYears, 
 			indicators: [
 				{	name:'Energy Use (kt of oil equivalent)', 
 	      	method: 'getAllEnergyUseKtByYear',
